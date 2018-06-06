@@ -24,5 +24,6 @@ urlpatterns = [
     path('board/', ArticleListView.as_view(), name='article_list'),
     path('board/new/', ArticleCreateView.as_view(), name='article_create'),
     path('board/<int:pk>', ArticleDetailView.as_view(), name='article_detail'),
+    # for API
     path('api/board/', last_article, name='api_last_article'),
 ]

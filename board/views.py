@@ -1,4 +1,5 @@
 from django.http import JsonResponse
+from django.views.decorators.http import require_http_methods
 from django.views.generic import (
     ListView,
     CreateView,
@@ -24,10 +25,7 @@ class ArticleDetailView(DetailView):
 
 
 # For API
+@require_http_methods(["GET"])
 def last_article(request):
-    last_article = Article.objects.order_by('-pk')[:10].values()
-    print('START')
-    print(last_article)
-    articles = list(last_article)
-    print(articles)
+    articles = list(Article.objects.order_by('-pk')[:10].values())
     return JsonResponse(articles, safe=False)
