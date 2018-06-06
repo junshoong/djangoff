@@ -1,0 +1,11 @@
+{% extends "common/base.html" %}
+{% block title %} {{ article.title }}{% endblock %}
+{% block content %}
+    <h1>
+        {{ article.title }}
+    </h1>
+    {{ article.content }}
+    <a href="{% url "article_list" %}"> Back </a>
+
+{% endblock %}
+

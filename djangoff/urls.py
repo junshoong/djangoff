@@ -15,11 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from board.views import ArticleListView
+from board.views import *
 from djangoff.views import IndexView
 
 urlpatterns = [
     path('', IndexView.as_view(), name='index'),
     path('admin/', admin.site.urls),
-    path('board/', ArticleListView.as_view(), name='article_list_view'),
+    path('board/', ArticleListView.as_view(), name='article_list'),
+    path('board/new/', ArticleCreateView.as_view(), name='article_create'),
+    path('board/<int:pk>', ArticleDetailView.as_view(), name='article_detail'),
+    path('api/board/', last_article, name='api_last_article'),
 ]

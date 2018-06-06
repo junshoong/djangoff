@@ -2,5 +2,8 @@
 
 {% block title %} Article List {% endblock %}
 {% block content %}
-    Hello !
+    {% for article in article_list %}
+        {{ article.title }} - {{ article.content }}
+    {% endfor %}
+    <a href="{% url "article_create" %}"> New </a>
 {% endblock %}
