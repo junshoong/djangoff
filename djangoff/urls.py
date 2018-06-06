@@ -16,8 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from board.views import ArticleListView
+from djangoff.views import IndexView
 
 urlpatterns = [
+    path('', IndexView.as_view(), name='index'),
     path('admin/', admin.site.urls),
     path('board/', ArticleListView.as_view(), name='article_list_view'),
 ]
